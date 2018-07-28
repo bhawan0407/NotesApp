@@ -27,7 +27,7 @@ else if(command === 'list')
 }
 else if(command == 'read')
 {
-    notes.readNote(argv.title);
+    notes.getNote(argv.title);
 }
 else 
 {
