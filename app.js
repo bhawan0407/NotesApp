@@ -15,7 +15,18 @@ var command = argv._[0];
 
 if(command === 'add')
 {
-    notes.addNote(argv.title, argv.body);
+    var note = notes.addNote(argv.title, argv.body);
+    
+    // undefined is treated as falsy value in JavaScript
+    if(note)
+    {
+        console.log("Added note successfully !", note.title, note.body);
+    }
+    else 
+    {
+        console.log("Note with same title already exists");
+    }
+
 }
 else if(command === 'remove')
 {
