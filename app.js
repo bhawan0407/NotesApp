@@ -9,7 +9,7 @@ const notes = require('./notes.js');
 
 const argv  = yargs.argv;
 
-//console.log(argv);
+console.log(argv);
 
 var command = argv._[0];
 
