@@ -20,17 +20,22 @@ if(command === 'add')
     // undefined is treated as falsy value in JavaScript
     if(note)
     {
-        console.log("Added note successfully !", note.title, note.body);
+        console.log("Note added");
+        notes.logNote(note);
     }
     else 
     {
-        console.log("Note with same title already exists");
+        console.log("Note title taken");
     }
 
 }
 else if(command === 'remove')
 {
-    notes.removeNote(argv.title);
+    var noteRemoved = notes.removeNote(argv.title);
+
+    var message = noteRemoved ? "Note removed" : "Note not found";
+
+    console.log(message);
 }
 else if(command === 'list')
 {
@@ -38,7 +43,17 @@ else if(command === 'list')
 }
 else if(command == 'read')
 {
-    notes.getNote(argv.title);
+    var note = notes.getNote(argv.title);
+
+    if(note)
+    {
+        console.log("Note found");
+        notes.logNote(note);
+    }
+    else 
+    {
+        console.log("Note not found");
+    }
 }
 else 
 {
